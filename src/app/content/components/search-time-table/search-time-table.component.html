@@ -1,0 +1,42 @@
+<form>
+    <div class="form-group col-md-3">
+        <label>起站</label>
+        <input 
+            [(ngModel)]="originStationId"
+            name="originStationId"
+            type="text"
+            class="form-control"
+            aria-describedby="originIdHelp">
+        <small id="originIdHelp"
+            class="form-text text-muted">
+            起站：1000 (台北)
+        </small>
+    </div>
+    <div class="form-group col-md-3">
+        <label>迄站</label>
+        <input 
+            [(ngModel)]="destinationStationId"
+            name="destinationStationId"
+            type="text"
+            class="form-control"
+            aria-describedby="destinationIdHelp">
+        <small id="destinationIdHelp"
+            class="form-text text-muted">
+            迄站：1050 (嘉義)
+        </small>
+    </div>
+    <div class="form-group col-md-3">
+        <label>日期</label>
+        <input 
+            [(ngModel)]="trainDate"
+            name="trainDate"
+            type="text"
+            class="form-control"
+            aria-describedby="trainDateHelp">
+        <small id="trainDateHelp"
+            class="form-text text-muted">
+            日期：2020-04-30
+        </small>
+    </div>
+    <button class="btn btn-primary" (click)="searchTimeTable()">查詢車次時刻表</button>
+</form>

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './content/pages/search/search.component';
 import { ThsrService } from './content/core/service/thsr.service';
+import { SearchTimeTableComponent } from './content/components/search-time-table/search-time-table.component';
 import { SearchStopsComponent } from './content/components/search-stops/search-stops.component';
 import { SearchAvailableSeatComponent } from './content/components/search-available-seat/search-available-seat.component';
 
@@ -14,8 +15,9 @@ import { SearchAvailableSeatComponent } from './content/components/search-availa
   declarations: [
     AppComponent,
     SearchComponent,
+    SearchTimeTableComponent,
     SearchStopsComponent,
-    SearchAvailableSeatComponent
+    SearchAvailableSeatComponent,
   ],
   imports: [
     BrowserModule,

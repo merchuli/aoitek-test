@@ -10,9 +10,6 @@ import { ThsrService } from '../../core/service/thsr.service';
 export class SearchComponent implements OnInit {
   showTimeTable = false;
   timeTable = [];
-  originStationId: '';
-  destinationStationId: '';
-  trainDate: '';
 
   stops: any;
 
@@ -23,12 +20,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  getTimeTableByData() {
-    const {originStationId, destinationStationId, trainDate} = this;
-
-    this.thsrService.getTimeTableByData({originStationId, destinationStationId, trainDate})
-      .subscribe((data: any) => {
-        for (const item of data) {
+  getTimeTableByData(data) {
+    this.thsrService.getTimeTableByData(data)
+      .subscribe((res: any) => {
+        for (const item of res) {
           this.timeTable = [...this.timeTable, {
               trainNo: item.DailyTrainInfo.TrainNo,
               originStopDepartureTime: item.OriginStopTime.DepartureTime,
@@ -43,17 +38,17 @@ export class SearchComponent implements OnInit {
 
   getStopsByTrainNo(trainNo) {
     this.thsrService.getStopsByTrainNo(trainNo)
-      .subscribe((data: any) => {
-        this.stops = data[0].GeneralTimetable.StopTimes;
+      .subscribe((res: any) => {
+        this.stops = res[0].GeneralTimetable.StopTimes;
     });
   }
 
   getAvailableSeatByStationId(stationId) {
     this.thsrService.getAvailableSeatByStationId(stationId)
-      .subscribe((data: any) => {
+      .subscribe((res: any) => {
         this.availableSeat = {
-          text: data.AvailableSeats.length ? '有座位' : '已無任何座位',
-          number: data.AvailableSeats.length,
+          text: res.AvailableSeats.length ? '有座位' : '已無任何座位',
+          number: res.AvailableSeats.length,
         };
         this.showAvailableSeat = true;
     });
