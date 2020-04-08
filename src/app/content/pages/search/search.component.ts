@@ -8,7 +8,8 @@ import { ThsrService } from '../../core/service/thsr.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  timeTable: any;
+  showTimeTable = false;
+  timeTable = [];
   originStationId: '';
   destinationStationId: '';
   trainDate: '';
@@ -16,7 +17,8 @@ export class SearchComponent implements OnInit {
   stops: any;
   trainNo = '';
 
-  availableSeat: any;
+  showAvailableSeat = false;
+  availableSeat = {text: '', number: 0};
   stationId = '';
 
   constructor(private thsrService: ThsrService) { }
@@ -28,24 +30,34 @@ export class SearchComponent implements OnInit {
 
     this.thsrService.getTimeTableByData({originStationId, destinationStationId, trainDate})
       .subscribe((data: any) => {
-        this.timeTable = {...data};
-        console.log(this.timeTable);
+        for (const item of data) {
+          this.timeTable = [...this.timeTable, {
+              trainNo: item.DailyTrainInfo.TrainNo,
+              originStopDepartureTime: item.OriginStopTime.DepartureTime,
+              destinationStopArrivalTime: item.DestinationStopTime.ArrivalTime,
+            },
+          ];
+        }
+
+        this.showTimeTable = true;
     });
   }
 
   getStopsByTrainNo() {
     this.thsrService.getStopsByTrainNo(this.trainNo)
       .subscribe((data: any) => {
-        this.stops = {...data};
-        console.log(this.stops);
+        this.stops = data[0].GeneralTimetable.StopTimes;
     });
   }
 
   getAvailableSeatByStationId() {
     this.thsrService.getAvailableSeatByStationId(this.stationId)
       .subscribe((data: any) => {
-        this.availableSeat = {...data};
-        console.log(this.availableSeat);
+        this.availableSeat = {
+          text: data.AvailableSeats.length ? '有座位' : '已無任何座位',
+          number: data.AvailableSeats.length,
+        };
+        this.showAvailableSeat = true;
     });
   }
 }

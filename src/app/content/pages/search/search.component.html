@@ -1,5 +1,7 @@
 <h1>高鐵簡易查詢系統</h1>
-<h3>依據起訖站,日期查詢車次時刻表</h3>
+<br>
+<h5>依據起訖站以及日期，查詢車次時刻表（車次、發車時間、抵達時間）</h5>
+<hr>
 <form>
     <div class="form-group col-md-3">
         <label>起站</label>
@@ -11,7 +13,7 @@
             aria-describedby="originIdHelp">
         <small id="originIdHelp"
             class="form-text text-muted">
-            起站：1000
+            起站：1000 (台北)
         </small>
     </div>
     <div class="form-group col-md-3">
@@ -24,7 +26,7 @@
             aria-describedby="destinationIdHelp">
         <small id="destinationIdHelp"
             class="form-text text-muted">
-            迄站：1050
+            迄站：1050 (嘉義)
         </small>
     </div>
     <div class="form-group col-md-3">
@@ -42,9 +44,25 @@
     </div>
     <button class="btn btn-primary" (click)="getTimeTableByData()">查詢車次時刻表</button>
 </form>
-
+<table *ngIf="showTimeTable" class="table">
+    <thead>
+      <tr>
+        <th scope="col">車次</th>
+        <th scope="col">出發時間</th>
+        <th scope="col">抵達時間</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of timeTable; index as i;">
+        <th scope="row">{{ item.trainNo }}</th>
+        <td>{{ item.originStopDepartureTime }}</td>
+        <td>{{ item.destinationStopArrivalTime }}</td>
+      </tr>
+    </tbody>
+  </table>
+<br>
+<h5>針對特定班次查詢停靠站</h5>
 <hr>
-
 <form>
     <div class="form-group col-md-6">
         <label>針對特定班次查詢停靠站</label>
@@ -58,9 +76,14 @@
         <button class="btn btn-primary" (click)="getStopsByTrainNo()">查詢停靠站</button>
     </div>
 </form>
-
+<ul>
+    <li *ngFor="let stop of stops; index as i;">
+        {{ stop.DepartureTime }} - {{ stop.StationName['Zh_tw'] }}
+    </li>
+</ul>
+<br>
+<h5>針對特定車站查詢目前是否有座位</h5>
 <hr>
-
 <form>
     <div class="form-group col-md-6">
         <label>針對特定車站查詢目前是否有座位</label>
@@ -70,7 +93,10 @@
             type="text"
             class="form-control"
             aria-describedby="stationIdHelp">
-        <small id="stationIdHelp" class="form-text text-muted">特定車站舉例：1000</small>
+        <small id="stationIdHelp" class="form-text text-muted">特定車站舉例：1000 (台北)</small>
         <button class="btn btn-primary" (click)="getAvailableSeatByStationId()">查詢是否有座位</button>
     </div>
 </form>
+<div *ngIf="showAvailableSeat">
+    {{ availableSeat.text }}, 座位數 {{ availableSeat.number }} 個
+</div>
