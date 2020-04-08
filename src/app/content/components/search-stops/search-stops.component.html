@@ -1,0 +1,13 @@
+<form>
+    <div class="form-group col-md-6">
+        <label>針對特定班次查詢停靠站</label>
+        <input 
+            [(ngModel)]="trainNo"
+            name="trainNo"
+            type="text"
+            class="form-control"
+            aria-describedby="trainNoHelp">
+        <small id="trainNoHelp" class="form-text text-muted">特定班次舉例：0618</small>
+        <button class="btn btn-primary" (click)="searchStops()">查詢停靠站</button>
+    </div>
+</form>

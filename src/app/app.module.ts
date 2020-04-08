@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './content/pages/search/search.component';
 import { ThsrService } from './content/core/service/thsr.service';
+import { SearchStopsComponent } from './content/components/search-stops/search-stops.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    SearchStopsComponent
   ],
   imports: [
     BrowserModule,

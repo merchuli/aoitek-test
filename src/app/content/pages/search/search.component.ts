@@ -15,7 +15,6 @@ export class SearchComponent implements OnInit {
   trainDate: '';
 
   stops: any;
-  trainNo = '';
 
   showAvailableSeat = false;
   availableSeat = {text: '', number: 0};
@@ -43,8 +42,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  getStopsByTrainNo() {
-    this.thsrService.getStopsByTrainNo(this.trainNo)
+  getStopsByTrainNo(trainNo) {
+    this.thsrService.getStopsByTrainNo(trainNo)
       .subscribe((data: any) => {
         this.stops = data[0].GeneralTimetable.StopTimes;
     });
