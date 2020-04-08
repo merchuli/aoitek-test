@@ -61,6 +61,7 @@
     </tbody>
   </table>
 <br>
+
 <h5>針對特定班次查詢停靠站</h5>
 <hr>
 <search-stops (search)=getStopsByTrainNo($event)></search-stops>
@@ -70,21 +71,10 @@
     </li>
 </ul>
 <br>
+
 <h5>針對特定車站查詢目前是否有座位</h5>
 <hr>
-<form>
-    <div class="form-group col-md-6">
-        <label>針對特定車站查詢目前是否有座位</label>
-        <input 
-            [(ngModel)]="stationId"
-            name="stationId"
-            type="text"
-            class="form-control"
-            aria-describedby="stationIdHelp">
-        <small id="stationIdHelp" class="form-text text-muted">特定車站舉例：1000 (台北)</small>
-        <button class="btn btn-primary" (click)="getAvailableSeatByStationId()">查詢是否有座位</button>
-    </div>
-</form>
+<search-available-seat (search)=getAvailableSeatByStationId($event)></search-available-seat>
 <div *ngIf="showAvailableSeat">
     {{ availableSeat.text }}, 座位數 {{ availableSeat.number }} 個
 </div>

@@ -18,7 +18,6 @@ export class SearchComponent implements OnInit {
 
   showAvailableSeat = false;
   availableSeat = {text: '', number: 0};
-  stationId = '';
 
   constructor(private thsrService: ThsrService) { }
 
@@ -49,8 +48,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  getAvailableSeatByStationId() {
-    this.thsrService.getAvailableSeatByStationId(this.stationId)
+  getAvailableSeatByStationId(stationId) {
+    this.thsrService.getAvailableSeatByStationId(stationId)
       .subscribe((data: any) => {
         this.availableSeat = {
           text: data.AvailableSeats.length ? '有座位' : '已無任何座位',
