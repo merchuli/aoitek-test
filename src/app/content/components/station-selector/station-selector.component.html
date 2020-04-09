@@ -1,0 +1,6 @@
+<select id="stations" class="form-control" [formControl]="selectedStationCtrl">
+    <option value=''>請選擇車站</option>
+    <option *ngFor="let station of stations; index as i;" [value]="station.id">
+        {{ station.name }}
+    </option>
+</select>

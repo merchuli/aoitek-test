@@ -6,6 +6,10 @@ export class ThsrService {
   baseUrl = 'https://ptx.transportdata.tw/MOTC/v2/Rail/THSR';
   constructor(private http: HttpClient) { }
 
+  getStations() {
+    return this.http.get(`${this.baseUrl}/Station`);
+  }
+
   getTimeTableByData(data) {
     return this.http.get(`${this.baseUrl}/DailyTimetable/OD/${data.originStationId}/to/${data.destinationStationId}/${data.trainDate}`);
   }
