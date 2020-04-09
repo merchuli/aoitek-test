@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void { }
 
   getTimeTableByData(data) {
+    this.timeTable = [];
     this.thsrService.getTimeTableByData(data)
       .subscribe((res: any) => {
         for (const item of res) {
