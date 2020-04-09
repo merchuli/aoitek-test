@@ -8,9 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearchTimeTableComponent implements OnInit {
   @Output() search: EventEmitter<any> = new EventEmitter();
-  originStationId: '';
-  destinationStationId: '';
-  trainDate: '';
+  originStationId = '';
+  destinationStationId = '';
+  trainDate = '';
 
   constructor() { }
 
@@ -21,5 +21,13 @@ export class SearchTimeTableComponent implements OnInit {
     const {originStationId, destinationStationId, trainDate} = this;
 
     this.search.emit({originStationId, destinationStationId, trainDate});
+  }
+
+  changeOriginId(id) {
+    this.originStationId = id;
+  }
+
+  changeDestinationId(id) {
+    this.destinationStationId = id;
   }
 }

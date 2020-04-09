@@ -14,6 +14,10 @@ export class SearchAvailableSeatComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changeId(id) {
+    this.stationId = id;
+  }
+
   searchAvailableSeat() {
     this.search.emit(this.stationId);
   }
