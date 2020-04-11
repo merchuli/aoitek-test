@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'search-time-table',
+  selector: 'thsr-search-time-table',
   templateUrl: './search-time-table.component.html',
   styleUrls: ['./search-time-table.component.scss']
 })

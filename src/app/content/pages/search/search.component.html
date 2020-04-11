@@ -3,7 +3,7 @@
 
 <h5>依據起訖站以及日期，查詢車次時刻表（車次、發車時間、抵達時間）</h5>
 <hr>
-<search-time-table (search)=getTimeTableByData($event)></search-time-table>
+<thsr-search-time-table (search)=getTimeTableByData($event)></thsr-search-time-table>
 <table *ngIf="showTimeTable" class="table">
     <thead>
       <tr>
@@ -24,7 +24,7 @@
 
 <h5>針對特定班次查詢停靠站</h5>
 <hr>
-<search-stops (search)=getStopsByTrainNo($event)></search-stops>
+<thsr-search-stops (search)=getStopsByTrainNo($event)></thsr-search-stops>
 <ul>
     <li *ngFor="let stop of stops; index as i;">
         {{ stop.DepartureTime }} - {{ stop.StationName['Zh_tw'] }}
@@ -34,7 +34,7 @@
 
 <h5>針對特定車站查詢目前是否有座位</h5>
 <hr>
-<search-available-seat (search)=getAvailableSeatByStationId($event)></search-available-seat>
+<thsr-search-available-seat (search)=getAvailableSeatByStationId($event)></thsr-search-available-seat>
 <div *ngIf="showAvailableSeat">
     {{ availableSeat.text }}, 座位數 {{ availableSeat.number }} 個
 </div>

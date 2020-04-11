@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'search-stops',
+  selector: 'thsr-search-stops',
   templateUrl: './search-stops.component.html',
   styleUrls: ['./search-stops.component.scss']
 })
