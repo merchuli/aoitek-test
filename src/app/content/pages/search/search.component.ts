@@ -7,12 +7,13 @@ import { ThsrService } from '../../core/service/thsr.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  /** varaibles for time table */
+  /** variables for time table */
   showTimeTable = false;
   timeTable = [];
 
   stops: any;
 
+  /** variables for available seat */
   showAvailableSeat = false;
   availableSeat = {text: '', number: 0};
 

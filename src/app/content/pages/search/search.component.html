@@ -16,6 +16,4 @@
 <h5>針對特定車站查詢目前是否有座位</h5>
 <hr>
 <thsr-search-available-seat (search)=getAvailableSeatByStationId($event)></thsr-search-available-seat>
-<div *ngIf="showAvailableSeat">
-    {{ availableSeat.text }}, 座位數 {{ availableSeat.number }} 個
-</div>
+<thsr-available-seat *ngIf="showAvailableSeat" [availableSeat]="availableSeat"></thsr-available-seat>
