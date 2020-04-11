@@ -7,6 +7,7 @@ import { ThsrService } from '../../core/service/thsr.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  /** varaibles for time table */
   showTimeTable = false;
   timeTable = [];
 

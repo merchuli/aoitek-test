@@ -4,22 +4,7 @@
 <h5>依據起訖站以及日期，查詢車次時刻表（車次、發車時間、抵達時間）</h5>
 <hr>
 <thsr-search-time-table (search)=getTimeTableByData($event)></thsr-search-time-table>
-<table *ngIf="showTimeTable" class="table">
-    <thead>
-      <tr>
-        <th scope="col">車次</th>
-        <th scope="col">出發時間</th>
-        <th scope="col">抵達時間</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of timeTable; index as i;">
-        <th scope="row">{{ item.trainNo }}</th>
-        <td>{{ item.originStopDepartureTime }}</td>
-        <td>{{ item.destinationStopArrivalTime }}</td>
-      </tr>
-    </tbody>
-  </table>
+<thsr-time-table *ngIf="showTimeTable" [timeTable]="timeTable"></thsr-time-table>
 <br>
 
 <h5>針對特定班次查詢停靠站</h5>
