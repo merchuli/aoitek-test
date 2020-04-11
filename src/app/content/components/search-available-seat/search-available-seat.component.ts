@@ -1,17 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'thsr-search-available-seat',
   templateUrl: './search-available-seat.component.html',
   styleUrls: ['./search-available-seat.component.scss']
 })
-export class SearchAvailableSeatComponent implements OnInit {
+export class SearchAvailableSeatComponent {
   @Output() search: EventEmitter<any> = new EventEmitter();
   stationId = '';
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   changeId(id) {
     this.stationId = id;

@@ -1,20 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'thsr-search-time-table',
   templateUrl: './search-time-table.component.html',
   styleUrls: ['./search-time-table.component.scss']
 })
-export class SearchTimeTableComponent implements OnInit {
+export class SearchTimeTableComponent {
   @Output() search: EventEmitter<any> = new EventEmitter();
   originStationId = '';
   destinationStationId = '';
   trainDate = '';
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   searchTimeTable(){
     const {originStationId, destinationStationId, trainDate} = this;

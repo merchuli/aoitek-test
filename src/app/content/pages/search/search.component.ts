@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThsrService } from '../../core/service/thsr.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'search-block',
+  selector: 'thsr-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   showTimeTable = false;
   timeTable = [];
 
@@ -17,8 +16,6 @@ export class SearchComponent implements OnInit {
   availableSeat = {text: '', number: 0};
 
   constructor(private thsrService: ThsrService) { }
-
-  ngOnInit(): void { }
 
   getTimeTableByData(data) {
     this.timeTable = [];
