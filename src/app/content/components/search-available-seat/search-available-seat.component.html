@@ -1,7 +1,7 @@
 <form>
     <div class="form-group col-md-6">
         <label>針對特定車站查詢目前是否有座位</label>
-        <station-selector [selectedId]="stationId" (changeValue)="changeId($event)"></station-selector>
+        <thsr-station-selector [selectedId]="stationId" (changeValue)="changeId($event)"></thsr-station-selector>
         <button class="btn btn-primary" (click)="searchAvailableSeat()">查詢是否有座位</button>
     </div>
 </form>

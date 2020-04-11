@@ -1,11 +1,11 @@
 <form>
     <div class="form-group col-md-3">
         <label>起站</label>
-        <station-selector [selectedId]="originStationId" (changeValue)="changeOriginId($event)"></station-selector>
+        <thsr-station-selector [selectedId]="originStationId" (changeValue)="changeOriginId($event)"></thsr-station-selector>
     </div>
     <div class="form-group col-md-3">
         <label>迄站</label>
-        <station-selector [selectedId]="destinationStationId" (changeValue)="changeDestinationId($event)"></station-selector>
+        <thsr-station-selector [selectedId]="destinationStationId" (changeValue)="changeDestinationId($event)"></thsr-station-selector>
     </div>
     <div class="form-group col-md-3">
         <label>日期</label>
@@ -17,7 +17,7 @@
             aria-describedby="trainDateHelp">
         <small id="trainDateHelp"
             class="form-text text-muted">
-            日期：2020-04-30
+            日期範例：2020-04-30
         </small>
     </div>
     <div class="form-group col-md-3">
