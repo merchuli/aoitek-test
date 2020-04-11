@@ -11,6 +11,7 @@ import { StationSelectorComponent } from './content/shared/station-selector/stat
 import { SearchTimeTableComponent } from './content/components/search-time-table/search-time-table.component';
 import { SearchStopsComponent } from './content/components/search-stops/search-stops.component';
 import { SearchAvailableSeatComponent } from './content/components/search-available-seat/search-available-seat.component';
+import { StopListComponent } from './content/components/stop-list/stop-list.component';
 import { TimeTableComponent } from './content/components/time-table/time-table.component';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { TimeTableComponent } from './content/components/time-table/time-table.c
     SearchStopsComponent,
     SearchAvailableSeatComponent,
     StationSelectorComponent,
+    StopListComponent,
     TimeTableComponent,
   ],
   imports: [

@@ -10,11 +10,7 @@
 <h5>針對特定班次查詢停靠站</h5>
 <hr>
 <thsr-search-stops (search)=getStopsByTrainNo($event)></thsr-search-stops>
-<ul>
-    <li *ngFor="let stop of stops; index as i;">
-        {{ stop.DepartureTime }} - {{ stop.StationName['Zh_tw'] }}
-    </li>
-</ul>
+<thsr-stop-list [stops]="stops"></thsr-stop-list>
 <br>
 
 <h5>針對特定車站查詢目前是否有座位</h5>
